@@ -1,11 +1,12 @@
 import { useEffect, useState, useMemo } from 'react';
+import "./styles/banner.css"
 
 const TypingAnimation = () => {
   const [typedWord, setTypedWord] = useState('');
   const [deleting, setDeleting] = useState(false);
   const staticText = 'I love ';
   const targetWords = useMemo(
-    () => ['GAMING', 'CODING', 'PROBLEM SOLVING', 'LEARNING', 'TECHNOLOGY', 'EFFICIENCY'],
+    () => ['CODING', 'PROBLEM SOLVING', 'LEARNING', 'TECHNOLOGY', 'EFFICIENCY', 'DESIGN'],
     []
   );
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -47,12 +48,17 @@ const TypingAnimation = () => {
   }, [typedWord, deleting, targetWord, targetWords]);
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <>
+    <div className="flex-col text-left">
+      <div className = "font-custom">Hey there! <br></br>My name is Kevin.</div>
       <span className="font-bold text-4xl">{staticText}</span>
       <span className="ml-2 italic font-cursive text-4xl bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
         {typedWord}
+        <span className = "cursor">|</span>
       </span>
     </div>
+    </>
+  
 
   );
 };

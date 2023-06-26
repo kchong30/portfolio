@@ -1,0 +1,27 @@
+@keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .cursor {
+    display: inline-block;
+    width: 1px;
+    animation: blink 0.7s infinite;
+    color:black;
+  }
+
+  .font-custom {
+    font-family: Helvetica, sans-serif;
+    font-size: 3rem;
+    color:rgb(9, 15, 97)
+  }
+
+  .banner {
+  }

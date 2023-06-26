@@ -1,14 +1,12 @@
 import Banner from './banner'
-
+import Projects from './projects'
 
 function App() {
 
   return (
     <>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
     <Banner />
+    <Projects />
     </>
   )
 }
