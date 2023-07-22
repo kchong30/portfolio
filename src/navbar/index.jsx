@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Link} from "react-router-dom"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,8 +13,8 @@ export default function Navbar() {
       <button onClick={toggleDropdown}>Menu</button>
       {isOpen && (
         <ul  className = "flex">
-          <li>Home</li>
-          <li>About</li>
+          <Link to = "/"><li>Home</li></Link>
+          <Link to = "/about"><li>About</li></Link>
           <li>Projects</li>
           {/* Add more navigation items as needed */}
         </ul>

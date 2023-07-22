@@ -1,0 +1,36 @@
+.about {
+    display:flex;
+    flex-direction: column;
+    width:50%;
+    margin-left: 10%;
+    margin-top: 2.5rem;
+    border: 2px solid rgb(0, 250, 237);
+    border-radius: 2rem;
+    padding: 30px;
+}
+
+.about h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color:rgb(9, 15, 97);
+    text-align:left;
+}
+
+.about p{
+    font-size: 1.5rem;
+    color:rgb(9, 15, 97);
+    text-align:left;
+}
+
+.aboutButton {
+    background-color: red;
+}
+
+.period {
+    font-size: 3rem;
+    font-weight: bold;
+    color:rgb(5, 123, 170);
+    margin-left:0.5px;
+}
+
+  

@@ -4,7 +4,7 @@ import "./styles/banner.css"
 export default function Banner() {
 
   return (
-    <div className = "flex justify-center items-center bg-slate-100 h-1/3">
+    <div className = "flex justify-center items-center">
       <TypingAnimation/>
     </div>
   )

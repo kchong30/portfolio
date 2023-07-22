@@ -49,8 +49,8 @@ const TypingAnimation = () => {
 
   return (
     <>
-    <div className="flex-col text-left">
-      <div className = "font-custom">Hey there! <br></br>My name is Kevin.</div>
+    <div className="flex-col text-left ">
+      <div className = "font-custom">Hey there!<br></br>My name is Kevin.</div>
       <span className="font-bold text-4xl">{staticText}</span>
       <span className="ml-2 italic font-cursive text-4xl bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
         {typedWord}
