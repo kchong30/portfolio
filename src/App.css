@@ -5,6 +5,8 @@
 
 html, body {
   height: 100%;
-  background-color:rgb(202, 229, 233)
+  background-color:rgb(1, 30, 53);
+  color:rgb(206, 226, 224);
+  font-family: 'Roboto', sans-serif;
 }
 
