@@ -6,7 +6,7 @@ const Card = ({ project }) => {
 
   return (
     <div className="card">
-      <h3>{title}</h3>
+      <h3 className = "card-title"> &lt;/&gt;{title}</h3>
       <p>{description}</p>
       <p>Challenges: {challenges}</p>
       <p>Technology: {technology.join(', ')}</p>

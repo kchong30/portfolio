@@ -28,12 +28,14 @@ function Projects() {
     <div className = "projects">
       <h1 className = "text-left">Projects</h1>
       <h2 className = "text-left">Click For More Details!</h2>
+      <div className = "cards">
       {projects.map((project, index) => (
         <Card
           key={index}
           project={project}
         />
       ))}
+      </div>
     </div>
   )
 }
