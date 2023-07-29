@@ -1,62 +1,98 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import "./styles/banner.css"
 
 export default function Banner() {
-
   const [typedWord, setTypedWord] = useState('');
-  const [deleting, setDeleting] = useState(false);
-  const staticText = 'I love ';
-  const targetWords = useMemo(
-    () => ['CODING', 'PROBLEM SOLVING', 'LEARNING', 'TECHNOLOGY', 'EFFICIENCY', 'DESIGN'],
-    []
-  );
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const targetWord = targetWords[currentWordIndex];
+  const [secondTypedWord, setSecondTypedWord] = useState('');
+  const [thirdTypedWord, setThirdTypedWord] = useState('');
+  const [firstLineFinished, setFirstLineFinished] = useState(false);
+  const [secondLineFinished, setSecondLineFinished] = useState(false);
+  const [opacity, setOpacity] = useState(1);
+
+
+  const targetWord = 'Hey there!';
+  const secondLineSentence = "My name is Kevin.";
+  const thirdLineSentence = "I'm a Web Developer based in Vancouver.";
+
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      let scrollTop = window.scrollY;
+      let maxHeight = window.innerHeight;
+      let scrollPercent = scrollTop / maxHeight;
+      let newOpacity = 1 - scrollPercent;
+
+      setOpacity(newOpacity > 0 ? newOpacity : 0);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
-    if (!deleting) {
-      if (typedWord === targetWord) {
-        setTimeout(() => setDeleting(true), 1000);
-      } else {
-        const typingInterval = setInterval(() => {
-          const currentTypedWord = typedWord + targetWord[typedWord.length];
-          setTypedWord(currentTypedWord);
-
-          if (currentTypedWord === targetWord) {
-            clearInterval(typingInterval);
-            setTimeout(() => setDeleting(true), 1000);
-          }
-        }, 100);
-
-        return () => clearInterval(typingInterval);
-      }
-    } else {
-      const deletionInterval = setInterval(() => {
-        const currentTypedWord = typedWord.slice(0, -1);
+    if (!firstLineFinished && typedWord !== targetWord) {
+      const typingInterval = setInterval(() => {
+        const currentTypedWord = typedWord + targetWord[typedWord.length];
         setTypedWord(currentTypedWord);
 
-        if (currentTypedWord === '') {
-          clearInterval(deletionInterval);
-          setDeleting(false);
-
-          // Transition to the next word in the sequence
-          setCurrentWordIndex((prevIndex) => (prevIndex + 1) % targetWords.length);
+        if (currentTypedWord === targetWord) {
+          clearInterval(typingInterval);
+          setFirstLineFinished(true);
         }
       }, 100);
 
-      return () => clearInterval(deletionInterval);
+      return () => clearInterval(typingInterval);
     }
-  }, [typedWord, deleting, targetWord, targetWords]);
+  }, [typedWord, targetWord, firstLineFinished]);
+
+  useEffect(() => {
+    if (firstLineFinished && !secondLineFinished && secondTypedWord !== secondLineSentence) {
+      const typingInterval = setInterval(() => {
+        const currentTypedWord = secondTypedWord + secondLineSentence[secondTypedWord.length];
+        setSecondTypedWord(currentTypedWord);
+
+        if (currentTypedWord === secondLineSentence) {
+          clearInterval(typingInterval);
+          setSecondLineFinished(true);
+        }
+      }, 100);
+
+      return () => clearInterval(typingInterval);
+    }
+  }, [secondTypedWord, secondLineSentence, firstLineFinished, secondLineFinished]);
+
+  useEffect(() => {
+    if (secondLineFinished && thirdTypedWord !== thirdLineSentence) {
+      const typingInterval = setInterval(() => {
+        const currentTypedWord = thirdTypedWord + thirdLineSentence[thirdTypedWord.length];
+        setThirdTypedWord(currentTypedWord);
+
+        if (currentTypedWord === thirdLineSentence) {
+          clearInterval(typingInterval);
+        }
+      }, 100);
+
+      return () => clearInterval(typingInterval);
+    }
+  }, [thirdTypedWord, thirdLineSentence, secondLineFinished]);
+
+  const bannerStyle = {
+    opacity: opacity,
+    transition: 'opacity 0.2s'
+  };
 
   return (
-    <div className = "banner">
+    <div className="banner" style={bannerStyle}>
       <div className="typing-animation">
-          <div>Hey there!<br></br>My name is <span className = "font-bold">Kevin.</span></div>
-          <span>{staticText}</span>
-          <span>
-            {typedWord}
-            <span className = "cursor">|</span>
-          </span>
+        <span>{typedWord}</span>
+        {firstLineFinished && (
+          <span><br />{secondTypedWord}</span>
+        )}
+        {secondLineFinished && (
+          <span><br />{thirdTypedWord}</span>
+        )}
+        <span className="cursor">|</span>
       </div>
     </div>
   )
