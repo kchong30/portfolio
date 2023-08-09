@@ -1,7 +1,93 @@
+:root {
+  --navbar-width: 400px; /* You can change this value as needed */
+  --navbar-color: rgb(13, 39, 61);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Ensure the container takes up the full width */
+  height: 100vh;
+  box-sizing: border-box; /* Ensures padding and border are included in the total width */
+}
+
+.left-nav {
+  position: fixed; /* Make the navbar fixed */
+  left: 0; /* Align to the left */
+  top: 0; /* Align to the top */
+  height: 100%; /* Full viewport height */
+  width: var(--navbar-width); /* Width of the navbar */
+  background-color: var(--navbar-color); /* Background color */
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.navbar-link {
+  margin: 10px 0; /* Space between links */
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(252, 252, 252); /* Light contrasting color */
+  font-weight: 500; /* Medium font weight */
+}
+
+.right-side {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .content {
     display:flex;
     flex-direction: column;
     justify-content:center;
+    flex-grow:1;
     padding: 1.0rem;
+    overflow: hidden;
+    position: relative;
+    height: 300vh;
+    width: 80%;
+    margin-left: var(--navbar-width); /* Make space for the navbar */
+
+
+  }
+
+  .section {
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 1s; /* Adjust the duration as needed */
+    display: flex; /* Center the content */
+    align-items: center;
+    justify-content: center;
   }
   
+  .section.fade-in {
+    opacity: 1;
+  }
+  
+  .scroll-indicator {
+    position: fixed;
+    transform: translateX(-50%);
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 999;
+  }
+  
+  .scroll-indicator.up {
+    top: 5%;
+  }
+  
+  .scroll-indicator.down {
+    bottom: 5%;
+  }
+  
+  /* Add this if the content inside the Projects component is larger than the section */
+  .projects-container {
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+

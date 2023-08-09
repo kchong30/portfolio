@@ -1,8 +1,30 @@
 .card {
     margin: 2.5rem;
     padding: 1.5rem;
-    width:50%;
     background-color:rgb(13, 39, 61);
     height: 100%;
     border-radius: 2%;
+    display:flex;
+    flex-direction: column;
+}
+
+.card-text {
+    height: 80%;
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.card-title {
+    font-size: 2.0rem;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.card-description {
+    font-size: 1.5rem;
+}
+
+.card-tech {
+    font-size: 1.1rem;
+    margin-top:2rem;
+    text-align:center;
 }

@@ -2,14 +2,15 @@ import PropTypes from 'prop-types';
 import "./styles/card.css"
 
 const Card = ({ project }) => {
-  const { title, description, challenges, technology } = project;
+  const { title, description, technology } = project;
 
   return (
     <div className="card">
-      <h3 className = "card-title"> &lt;/&gt;{title}</h3>
-      <p>{description}</p>
-      <p>Challenges: {challenges}</p>
-      <p>Technology: {technology.join(', ')}</p>
+      <div className="card-text">
+        <h3 className = "card-title">{title}</h3>
+        <p className="card-description">{description}</p>
+      </div>
+      <p className="card-tech">Stack: {technology.join(', ')}</p>
     </div>
   );
 };
