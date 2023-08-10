@@ -3,14 +3,6 @@ import './styles/scrollbar.css'
 
 function Scrollbar() {
     const [scroll, setScroll] = useState(0);
-    const maxScroll = document.body.scrollHeight - window.innerHeight;
-    // adjust this value based on your sections
-  
-    const handleScrollKnob = (e) => {
-      const knobPosition = e.clientY - e.target.getBoundingClientRect().top;
-      const scrollPercentage = knobPosition / 100; // height of .scrollbar-container
-      window.scrollTo({ top: scrollPercentage * maxScroll, behavior: "smooth" });
-    };
   
     const handleUpArrow = () => {
       window.scrollTo({ top: scroll - window.innerHeight, behavior: 'smooth' });
@@ -26,26 +18,22 @@ function Scrollbar() {
       return () => window.removeEventListener('scroll', updateScroll);
     }, [scroll]);
 
-
-    const knobHeight = (window.innerHeight / document.body.scrollHeight) * 100; // Calculate knob height in %
-    const knobTop = (scroll / maxScroll) * (100 - knobHeight); // Calculate knob top position in %
-  
     return (
         <div className="right-container">
           <div className="scroll-arrows" onClick={handleUpArrow}>
-            &uarr; {/* Up arrow */}
+            <i className="fa fa-angle-double-up"></i>
           </div>
-          <div className="scrollbar-container">
-        <div
-          className="scroll-knob"
-          style={{ top: `${knobTop}%`, height: `${knobHeight}%` }}
-          onMouseDown={(e) => e.target.setCapture()}
-          onMouseMove={handleScrollKnob}
-        ></div>
-      </div>
-          <div className="scroll-arrows" onClick={handleDownArrow}>
-            &darr; {/* Down arrow */}
-          </div>
+            <div className="scrollbar-container">
+              <div className = "line-nodes">
+                <div className="scroll-line"></div> {/* Line where the nodes sit */}
+                <div className={`scroll-node ${scroll < window.innerHeight ? 'active' : ''}`}></div>
+                <div className={`scroll-node ${scroll >= window.innerHeight && scroll < window.innerHeight * 2 ? 'active' : ''}`}></div>
+                <div className={`scroll-node ${scroll >= window.innerHeight * 2 ? 'active' : ''}`}></div>
+              </div>
+            </div>
+            <div className="scroll-arrows" onClick={handleDownArrow}>
+             <i className="fa fa-angle-double-down"></i>
+            </div>
         </div>
       );
   }
