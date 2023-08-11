@@ -20,7 +20,7 @@
 
   .font-custom {
     font-family: Helvetica, sans-serif;
-    font-size: 3rem;
+    font-size: calc(1rem + 1.5vw);
   }
 
   .banner {
@@ -31,11 +31,17 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    
+    position: relative;
   }
 
   .banner .typing-animation {
     font-size: 3rem;
     text-align: center;
-    color:rgb(1, 253, 228)
+    color:rgb(1, 253, 228);
+    text-shadow: 2px 2px 4px rgba(1, 253, 228, 0.6);
+  }
+  
+  .content-layer {
+    position: relative; /* or absolute, depending on your layout */
+    z-index: 2; /* higher than the particles container's z-index */
   }

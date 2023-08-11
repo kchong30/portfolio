@@ -2,8 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-button:focus,
-a:focus,
-[class*="fa"]:focus {
-  outline: none;
-}

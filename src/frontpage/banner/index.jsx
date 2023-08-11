@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import "./styles/banner.css"
+import Particles from "react-particles";
+import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 
 export default function Banner() {
   const [typedWord, setTypedWord] = useState('');
@@ -7,7 +9,19 @@ export default function Banner() {
   const [thirdTypedWord, setThirdTypedWord] = useState('');
   const [firstLineFinished, setFirstLineFinished] = useState(false);
   const [secondLineFinished, setSecondLineFinished] = useState(false);
-  const [opacity, setOpacity] = useState(1);
+
+  const particlesInit = useCallback(async engine => {
+    console.log(engine);
+    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    //await loadFull(engine);
+    await loadSlim(engine);
+}, []);
+
+const particlesLoaded = useCallback(async container => {
+    await console.log(container);
+}, []);
 
 
   const targetWord = 'Hey there!';
@@ -15,20 +29,6 @@ export default function Banner() {
   const thirdLineSentence = "I'm a Web Developer based in Vancouver.";
 
   
-  useEffect(() => {
-    const handleScroll = () => {
-      let scrollTop = window.scrollY;
-      let maxHeight = window.innerHeight;
-      let scrollPercent = scrollTop / maxHeight;
-      let newOpacity = 1 - scrollPercent;
-
-      setOpacity(newOpacity > 0 ? newOpacity : 0);
-    }
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (!firstLineFinished && typedWord !== targetWord) {
@@ -76,23 +76,99 @@ export default function Banner() {
       return () => clearInterval(typingInterval);
     }
   }, [thirdTypedWord, thirdLineSentence, secondLineFinished]);
+  
+  
 
-  const bannerStyle = {
-    opacity: opacity,
-    transition: 'opacity 0.2s'
-  };
 
   return (
-    <div className="banner" style={bannerStyle}>
-      <div className="typing-animation">
-        <span>{typedWord}</span>
-        {firstLineFinished && (
-          <span><br />{secondTypedWord}</span>
-        )}
-        {secondLineFinished && (
-          <span><br />{thirdTypedWord}</span>
-        )}
-        <span className="cursor">|</span>
+    <div className="banner">
+<div className={`particles-container`}>
+        <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={{
+            background: {
+                color: {
+                    value: "#001E35",
+                },
+            },
+            fpsLimit: 120,
+            interactivity: {
+                events: {
+                    onClick: {
+                        enable: true,
+                        mode: "push",
+                    },
+                    onHover: {
+                        enable: true,
+                        mode: "repulse",
+                    },
+                    resize: true,
+                },
+                modes: {
+                    push: {
+                        quantity: 4,
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4,
+                    },
+                },
+            },
+            particles: {
+                color: {
+                    value: "#ffffff",
+                },
+                links: {
+                    color: "#666666",
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.5,
+                    width: 1,
+                },
+                move: {
+                    direction: "none",
+                    enable: true,
+                    outModes: {
+                        default: "bounce",
+                    },
+                    random: false,
+                    speed: 3,
+                    straight: false,
+                },
+                number: {
+                    density: {
+                        enable: true,
+                        area: 800,
+                    },
+                    value: 80,
+                },
+                opacity: {
+                    value: 0.0,
+                },
+                shape: {
+                    type: "circle",
+                },
+                size: {
+                    value: { min: 1, max: 5 },
+                },
+            },
+            detectRetina: true,
+        }}
+    />
+      </div>
+      <div className = "content-layer">
+        <div className="typing-animation">
+          <span>{typedWord}</span>
+          {firstLineFinished && (
+            <span><br />{secondTypedWord}</span>
+          )}
+          {secondLineFinished && (
+            <span><br />{thirdTypedWord}</span>
+          )}
+          <span className="cursor">|</span>
+        </div>
       </div>
     </div>
   )

@@ -60,7 +60,9 @@
   background-color: gray;
   position: relative; /* relative positioning for the nodes */
   z-index: 1; /* to ensure nodes appear above the line */
-  transition: all 0.3s ease; /* transition effect */
+  transition: all 0.3s ease; /* transition effect */;
+  cursor: pointer;
+  user-select: none; /* Prevents text selection */
 }
 
 .scroll-node.active {
@@ -71,6 +73,7 @@
 
 button:focus,
 a:focus,
-[class*="fa"]:focus {
+[class*="fa"]:focus,
+.scroll-node:focus {
   outline: none;
 }
