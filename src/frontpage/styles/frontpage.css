@@ -44,12 +44,11 @@
 .content {
     display:flex;
     flex-direction: column;
-    justify-content:center;
     flex-grow:1;
     padding: 1.0rem;
     overflow: hidden;
     position: relative;
-    height: 300vh;
+    height: 400vh;
     width: 80%;
     margin-left: var(--navbar-width); /* Make space for the navbar */
   }

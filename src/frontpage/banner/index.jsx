@@ -6,7 +6,6 @@ import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSli
 export default function Banner() {
   const [typedWord, setTypedWord] = useState('');
   const [secondTypedWord, setSecondTypedWord] = useState('');
-  const [thirdTypedWord, setThirdTypedWord] = useState('');
   const [firstLineFinished, setFirstLineFinished] = useState(false);
   const [secondLineFinished, setSecondLineFinished] = useState(false);
 
@@ -24,9 +23,8 @@ const particlesLoaded = useCallback(async container => {
 }, []);
 
 
-  const targetWord = 'Hey there!';
-  const secondLineSentence = "My name is Kevin.";
-  const thirdLineSentence = "I'm a Web Developer based in Vancouver.";
+  const targetWord = 'Kevin Chong';
+  const secondLineSentence = "Web Developer";
 
   
 
@@ -40,7 +38,7 @@ const particlesLoaded = useCallback(async container => {
           clearInterval(typingInterval);
           setFirstLineFinished(true);
         }
-      }, 100);
+      }, 130);
 
       return () => clearInterval(typingInterval);
     }
@@ -56,29 +54,11 @@ const particlesLoaded = useCallback(async container => {
           clearInterval(typingInterval);
           setSecondLineFinished(true);
         }
-      }, 100);
+      }, 130);
 
       return () => clearInterval(typingInterval);
     }
   }, [secondTypedWord, secondLineSentence, firstLineFinished, secondLineFinished]);
-
-  useEffect(() => {
-    if (secondLineFinished && thirdTypedWord !== thirdLineSentence) {
-      const typingInterval = setInterval(() => {
-        const currentTypedWord = thirdTypedWord + thirdLineSentence[thirdTypedWord.length];
-        setThirdTypedWord(currentTypedWord);
-
-        if (currentTypedWord === thirdLineSentence) {
-          clearInterval(typingInterval);
-        }
-      }, 100);
-
-      return () => clearInterval(typingInterval);
-    }
-  }, [thirdTypedWord, thirdLineSentence, secondLineFinished]);
-  
-  
-
 
   return (
     <div className="banner">
@@ -160,12 +140,9 @@ const particlesLoaded = useCallback(async container => {
       </div>
       <div className = "content-layer">
         <div className="typing-animation">
-          <span>{typedWord}</span>
+          <span className = "name-type">{typedWord}</span>
           {firstLineFinished && (
-            <span><br />{secondTypedWord}</span>
-          )}
-          {secondLineFinished && (
-            <span><br />{thirdTypedWord}</span>
+            <span className = "title-type"><br />{secondTypedWord}</span>
           )}
           <span className="cursor">|</span>
         </div>
