@@ -4,9 +4,10 @@
   justify-content: space-between; /* distribute space between the children */
   align-items: center;
   height: 100vh; /* full viewport height */
-  position: fixed;
   width: 10%;
-  background-color: rgb(28, 27, 48);
+  right:2%;
+  top: 0; /* add this line */
+  position: fixed; /* fixed position */
 }
 
 .scroll-arrows {
@@ -14,7 +15,6 @@
   font-size: 5rem; /* adjust the size as needed */
   transition: transform 0.3s ease;
   user-select: none; /* Prevents text selection */
-
 }
 
 .scroll-arrows:hover {
@@ -46,7 +46,7 @@
 .scroll-line {
   position: absolute;
   width: 2px; /* thickness of the line */
-  height: 100%; /* full height of the container */
+  height: 95%; /* full height of the container */
   background-color: gray; /* color of the line */
   left: 50%;
   top: 50%; /* center the line vertically */
@@ -68,8 +68,36 @@
 .scroll-node.active {
   background-color: rgb(2, 253, 253);
   transform: scale(1.2); /* adjust the scale for desired pulse effect */
-
 }
+.scroll-to-second {
+  position: fixed; /* fixed position */
+  bottom: 20px; /* position from the bottom */
+  left: 50%; /* center horizontally */
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-size: 5rem;
+}
+
+.scroll-to-second:hover {
+  transform: scale(1.2); /* adjust the scale for desired pulse effect */
+}
+
+.hidden {
+  display: none;
+}
+
+.scroll-node-label {
+  position: absolute;
+  right: 60px; /* Adjust as needed to position the label to the left of the node */
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  color: white; /* Choose a suitable color */
+  font-family: 'Arial', sans-serif; /* Choose a suitable font */
+  font-size: 1rem; /* Adjust font size as needed */
+}
+
 
 button:focus,
 a:focus,
@@ -77,3 +105,4 @@ a:focus,
 .scroll-node:focus {
   outline: none;
 }
+

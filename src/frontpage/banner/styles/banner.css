@@ -45,3 +45,21 @@
     position: relative; /* or absolute, depending on your layout */
     z-index: 2; /* higher than the particles container's z-index */
   }
+
+  .name-type {
+    font-size: 12rem;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 750;
+  }
+
+  .title-type {
+    font-size: 7rem;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:white;
+    font-weight: 750;
+  }
+
+  .cursor {
+    font-size: 7rem;
+  }
+
