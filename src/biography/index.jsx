@@ -1,5 +1,6 @@
 import './styles/biography.css'
 
+
 function Biography() {
   return (
     <div className="bio-wrapper">
@@ -17,11 +18,31 @@ function Biography() {
         <div className="paragraph-two">
           <p>Yeah</p>
         </div>
-        <div className="skills-and-languages">
-          <p>Skills Languages</p>
+      <div className="language-section">
+          <h3>Languages</h3>
+          <div className="grid">
+            <div><i className="fa fa-bar-chart" aria-hidden="true"></i>JavaScript</div>
+            <div><i className="fas fa-python"></i> Python</div>
+            {/* Add more languages */}
+          </div>
         </div>
-        <div className="contact-info"></div>
-      </div>
+        <div className="framework-section">
+          <h3>Frameworks</h3>
+          <div className="grid">
+            <div><i className="fas fa-react"></i> React</div>
+            <div><i className="fab fa-angular"></i> Angular</div>
+            {/* Add more frameworks */}
+          </div>
+        </div>
+        <div className="database-section">
+          <h3>Databases</h3>
+          <div className="grid">
+            <div><i className="fas fa-database"></i> MySQL</div>
+            <div><i className="fas fa-database"></i> MongoDB</div>
+            {/* Add more databases */}
+          </div>
+        </div>
+    </div>
     </div>
   );
 }

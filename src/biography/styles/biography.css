@@ -40,8 +40,6 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-
-  
   
   @keyframes slideLine {
     0% {
@@ -51,4 +49,15 @@
       transform: translateX(0);
       opacity: 1;
     }
+  }
+
+  .skills-and-languages .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .skills-and-languages i {
+    margin-right: 0.5rem;
   }
