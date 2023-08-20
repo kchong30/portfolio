@@ -1,0 +1,63 @@
+.bio-wrapper {
+    margin-top:10rem;
+    display:flex;
+    flex-direction:column;
+    padding-left:30rem;
+    padding-right:30rem;
+    padding-top:10rem;
+    padding-bottom:10rem;
+    text-align:left;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.animated-line {
+    height: 0.3rem; 
+    background-color: rgb(0, 250, 237); 
+    width: 10rem; 
+    opacity: 0;
+    animation: slideLine 0.2s ease-in-out 0.5s forwards;
+  }
+
+.bio-content  {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out 1.5s forwards; 
+    margin-top: 1.5rem;
+}
+
+.title {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out 1s forwards;
+    font-size: 6rem;
+}
+
+.title span {
+    opacity:0;
+    animation: fadeIn 0.5s ease-in-out 1.5s forwards;
+    color:rgb(0, 250, 237); 
+}
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes slideLine {
+    0% {
+      transform: translateX(500%); /* Added 'px' */
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .skills-and-languages .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .skills-and-languages i {
+    margin-right: 0.5rem;
+  }
