@@ -1,43 +1,29 @@
-import React from 'react'
+import './styles/contact.css'
 
 function Contact() {
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData);
-      
-        try {
-          const response = await fetch('/api/contact', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-          if (response.ok) {
-            // Handle success, e.g. show a success message
-          } else {
-            // Handle error
-          }
-        } catch (error) {
-          // Handle network error
-        }
-    };
-        
-
   return (
-    <div>
-        <h1>hi</h1>
-        <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="comments" placeholder="Your Comments" required></textarea>
-        <button type="submit">Submit</button>
-        </form>
+    <div className="get-in-touch">
+      <h1>Lets Get In Touch <span className = "title-icon">&lt;/&gt;</span></h1>
+      <div className="contact-section">
+        <div className="contact-item">
+        <i className="fa fa-envelope"></i>
+        <h3>Email</h3>
+          <p>kchong1902@gmail.com</p>
+        </div>
+        <div className="contact-item">
+          <i className="fa fa-phone"></i>
+          <h3>Phone Number</h3>
+          <p>604-679-4513</p>
+        </div>
+        <div className="contact-item">
+          <i className="fa fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/in/kevin-c-803818137">https://www.linkedin.com/in/kevin-c-803818137</a></p>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Contact

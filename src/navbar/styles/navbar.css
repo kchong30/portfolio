@@ -1,0 +1,55 @@
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 100; /* Ensure the navbar is above other content */
+    height: 100px; /* Increase the height */
+  }
+  
+  .navbar-wrapper.fade-in {
+    opacity: 1;
+  }
+  
+  .navbar {
+    background-color: transparent; /* Set background to transparent */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 100%; /* Take full height of the wrapper */
+    font-weight:900;
+  }
+  
+  .navbar-left,
+  .navbar-center a,
+  .navbar-center li {
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(1, 253, 228);
+    text-decoration: none;
+    font-size: 22px; /* Increase the font size */
+    font-weight: 700; /* Increase the boldness */
+  }
+  
+  .navbar-center li {
+    list-style: none; /* Remove the bullet points */
+  }
+  
+  .navbar-left {
+    font-size: 28px; /* Even larger font size for "Kevin" */
+    font-weight: 800; /* Even bolder weight for "Kevin" */
+  }
+  
+  .navbar-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .navbar-center a:hover,
+  .navbar-center li:hover {
+    color: rgb(1, 253, 228); /* You can adjust the hover color if needed */
+  }
+  
