@@ -1,13 +1,13 @@
 .right-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* distribute space between the children */
   align-items: center;
-  height: 100vh; /* full viewport height */
-  width: 10%;
-  right:2%;
-  top: 0; /* add this line */
-  position: fixed; /* fixed position */
+  height: 80vh; /* height of the container */
+  width: 3%;
+  right: 1%;
+  top: 50%; /* set this to 50% */
+  transform: translateY(-50%); /* move up by half the container's height */
+  position: fixed;
 }
 
 .scroll-arrows {
@@ -54,8 +54,8 @@
 }
 
 .scroll-node {
-  width: 50px;
-  height: 50px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   background-color: gray;
   position: relative; /* relative positioning for the nodes */
@@ -69,6 +69,7 @@
   background-color: rgb(2, 253, 253);
   transform: scale(1.2); /* adjust the scale for desired pulse effect */
 }
+
 .scroll-to-second {
   position: fixed; /* fixed position */
   bottom: 20px; /* position from the bottom */
@@ -81,7 +82,7 @@
 }
 
 .scroll-to-second:hover {
-  transform: scale(1.2); /* adjust the scale for desired pulse effect */
+  transform: scale(1.6); /* adjust the scale for desired pulse effect */
 }
 
 .hidden {

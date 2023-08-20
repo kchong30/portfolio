@@ -1,5 +1,5 @@
 :root {
-  --navbar-width: 400px; /* You can change this value as needed */
+  --navbar-width: 13%; /* You can change this value as needed */
   --navbar-color: rgb(13, 39, 61);
 }
 
@@ -40,6 +40,7 @@
   align-items: center;
   justify-content: center;
 }
+
 
 .content {
     display:flex;
@@ -88,3 +89,23 @@
     max-height: 100vh;
   }
 
+
+/* Slide-in animation for the h1 - only when fade-in class is present */
+.section.fade-in .about h1 {
+  animation: slide-in-right 1s ease forwards;
+}
+
+/* Fade-in animation for the paragraph - only when fade-in class is present */
+.section.fade-in .about p {
+  animation: slide-from-bottom 1s ease forwards 0.2s;
+}
+
+.section.fade-in .projects h1 {
+  animation: slide-in-right 1s ease forwards;
+}
+
+
+
+.section.fade-in .about button {
+  animation: slide-from-bottom 1s ease forwards 0.2s;
+}

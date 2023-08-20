@@ -2,15 +2,14 @@ import { useEffect, useState } from 'react';
 import Banner from './banner';
 import Projects from './projects';
 import About from './about';
-import Loader from './loader';
 import Scrollbar from './scrollbar';
 import Contact from './contact';
 import "./styles/frontpage.css";
 
+
 function FrontPage() {
   const [scroll, setScroll] = useState(0);
   
-
   const handleScroll = () => {
     setScroll(window.scrollY);
   };
@@ -22,10 +21,10 @@ function FrontPage() {
     };
   }, []);
 
+
   return (
     <div className="container">
       <div className="content">
-        <Loader />
         <div className={`section ${scroll < window.innerHeight ? 'fade-in' : ''}`}>
           <Banner />
         </div>

@@ -1,13 +1,130 @@
+
 .projects {
-  height: 100vh; /* Set the height to 100% of the viewport height */
-  overflow-y: auto; /* Allow vertical scrolling if the content overflows */
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  border: 2px solid rgb(0, 250, 237);
+  border-radius: 2rem;
+  padding: 3rem;
+}
+
+.project-title{
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align:left;
+}
+
+.projects h1 {
+  margin-bottom: 0;
+}
+
+.projects .info-hint {
+  margin-bottom: 5rem;
+}
+
+.title-icon {
+  color:rgb(0, 250, 237);
 }
 
 .cards {
-    display:flex;
-    flex-direction:column;
-    height:100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1rem;
+  height: 30vh;
+  transition: opacity 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.pagination li {
+  margin-right: 10px;
+}
+
+.pagination li:last-child {
+  margin-right: 0;
+}
+
+.pagination li a {
+  font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color:transparent;
+  border-color:white;
+  font-size: 1rem;
+  padding: 2rem;
+  user-select: none; /* Prevents text selection */
+
+}
+
+.pagination__link {
+  cursor: pointer;
+  padding: 8px 16px;
+  margin: 0 12px;
+  border-radius: 4px;
+  user-select: none; /* Prevents text selection */
+
+}
+
+.pagination__link i {
+  font-size: 3rem;
+  user-select: none; /* Prevents text selection */
+}
+
+.pagination__link--disabled {
+  cursor: not-allowed;
+  color: #ccc;
+}
+
+.active {
+  background-color:rgb(13, 39, 61);
+  border: 1px solid rgb(252, 252, 252);
+  color: #ffffff;
+}
+
+.pagination-container {
+  margin-top: 6rem; /* Adjust this value as needed */
+  display: flex;
+}
+
+.placeholder-card {
+  visibility: hidden; /* Makes the placeholder card invisible */
+  height: 400px;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(5%); /* Starts off the right side of the container */
+    opacity: 0; /* Starts out completely transparent */
+  }
+  100% {
+    transform: translateX(0); /* Ends at its final position */
+    opacity: 1; /* Ends fully visible */
+  }
+}
+
+.about p{
+  font-size: 1.5rem;
+  text-align:left;
+  opacity:0;
+}
+
+@keyframes slide-from-bottom {
+  0% {
+      transform: translateY(100%);
+  }
+  
+  100%{
+      transform: translateY(0);
+      opacity:1
+  }
 }
