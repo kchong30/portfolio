@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   height: 80vh; /* height of the container */
-  width: 3%;
+  width: 2%;
   right: 1%;
   top: 50%; /* set this to 50% */
   transform: translateY(-50%); /* move up by half the container's height */
