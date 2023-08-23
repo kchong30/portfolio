@@ -1,3 +1,15 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: start; /* Centers container horizontally */
+  justify-content: center; /* Centers container vertically */
+  min-height: 100vh; /* Minimum height of the viewport */
+  text-align: left; /* Aligns content to the left */
+  width: 80%; /* Adjust as needed to set the container width */
+  margin-left: 25rem;
+}
+
+
 .animated-line {
     height: 0.3rem; 
     background-color: rgb(0, 250, 237); 
@@ -11,7 +23,7 @@
     animation: fadeIn 0.5s ease-in-out 1.5s forwards; 
     margin-top: 1.5rem;
     font-size: 1.0rem;
-    width:80%;
+    width:70%;
 }
 
 .title {

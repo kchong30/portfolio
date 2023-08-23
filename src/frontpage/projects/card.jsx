@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
+
 import "./styles/card.css"
 
 const Card = ({ project }) => {
-  const { title, description, technology, image, detailsLink } = project;
+  const { title, description, technology, image, id} = project;
 
 
   return (
@@ -15,23 +17,12 @@ const Card = ({ project }) => {
         <p className="card-tech">Stack: {technology.join(', ')}</p>
       </div>
       <div className="card-overlay">
-        <img src={image} alt={`${title} preview`} />
-        <a href={detailsLink} className="card-details-link">More Details</a>
+      <img src={image} alt={`${title} preview`} />
+      <Link to={`/projects/${id}`} className="card-details-link">More Details</Link>
       </div>
     </div>
   );
 };
-
-Card.propTypes = {
-    project: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      challenges: PropTypes.string.isRequired,
-      image: PropTypes.string,
-      technology: PropTypes.arrayOf(PropTypes.string).isRequired,
-      detailsLink: PropTypes.string
-    }).isRequired,
-  };
 
 
 

@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="navbar-center">
           <Link to="/"><li>Home</li></Link>
           <Link to="/about"><li>About</li></Link>
-          <a href="#projects">Projects</a>
+          <Link to="/projects"><li>Projects</li></Link>
         </div>
         <div className="navbar-right"></div>
       </div>

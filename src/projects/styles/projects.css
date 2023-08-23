@@ -1,0 +1,40 @@
+.projects-container {
+    padding-left: 20rem;
+    padding-right: 20rem;
+    margin-top: 10rem;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.projects-container .animated-line{
+    margin-left: auto;
+    margin-right: auto;
+}
+.cards-container {
+    opacity: 0; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    animation: fadeIn 1.5s ease-out 1.5s forwards;
+  }
+
+.card {
+    flex-basis: calc(50% - 10px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
