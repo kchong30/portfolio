@@ -12,7 +12,7 @@ const Card = ({ project }) => {
       <div className="card-content">
         <div className="card-text">
           <h3 className="card-title">{title}</h3>
-          <p className="card-description">{description}</p>
+          <p className="card-description mt-10">{description}</p>
         </div>
         <p className="card-tech">Stack: {technology.join(', ')}</p>
       </div>

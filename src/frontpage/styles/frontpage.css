@@ -105,7 +105,25 @@
 }
 
 
-
 .section.fade-in .about button {
   animation: slide-from-bottom 1s ease forwards 0.2s;
+}
+
+.section.fade-in .about {
+  animation: fadeInBorder 3s ease forwards 0.5s; 
+}
+
+.section.fade-in .projects {
+  animation: fadeInBorder 3s ease forwards 0.5s; 
+}
+
+.section.fade-in .get-in-touch{
+  animation: fadeInBorder 3s ease forwards 0.5s; 
+}
+
+@keyframes fadeInBorder {
+  to {
+
+    border-color: rgb(0, 250, 237); 
+  }
 }

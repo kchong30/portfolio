@@ -20,14 +20,20 @@
   }
   
   .project-info h2 {
+    font-size: 3rem;
+    margin: 10px 0;
+    color:rgb(0, 250, 237);
+  }
+
+  .project-info h3 {
     font-size: 2rem;
     margin: 10px 0;
+    color:rgb(0, 250, 237);
   }
-  
+
   .project-info p {
     font-size: 1rem;
-    color: #555;
-    margin: 5px 0;
+    margin: 1rem
   }
   
   .project-info p:nth-child(3) { /* To target the technology stack specifically */

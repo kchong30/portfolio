@@ -2,6 +2,8 @@ import {useState} from 'react'
 import Card from "./card"
 import "./styles/projects.css"
 import ReactPaginate from 'react-paginate';
+import { useProjects } from '../../ProjectContext'; // Import your ProjectsContext
+
 
 
 function Projects() {
@@ -19,26 +21,7 @@ function Projects() {
     }, 500); // Same duration as the CSS transition
   };
 
-  const projects = [
-        {
-          title: "Agilitek - Segmentation Tool",
-          description: "Industry Project sponsored by Agilitek.",
-          technology: ["React", "Node.js", "Express", "MongoDB"],
-          image: "https://i.imgur.com/rOFmbDx.png"
-        },
-        {
-          title: "Weather App",
-          description: "Developed a weather application that provides real-time weather information.",
-          technology: ["React", "Node.js", "Express", "OpenWeatherMap API"],
-          image: "https://i.imgur.com/IraHkP4.png"
-        },
-        {
-          title: "Task Management System",
-          description: "Created a task management system with user authentication and role-based access control.",
-          technology: ["React", "Node.js", "Express", "MongoDB", "Passport.js"],
-        },
-        // Add more project objects as needed
-      ];
+  const { projects } = useProjects(); // Access the project data
 
 /* const handlePageClick = (selectedItem) => {
   setCurrentPage(selectedItem.selected);

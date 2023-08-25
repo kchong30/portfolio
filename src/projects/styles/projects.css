@@ -1,7 +1,8 @@
 .projects-container {
+    padding-bottom: 20rem;
     padding-left: 20rem;
     padding-right: 20rem;
-    margin-top: 10rem;
+    padding-top:10rem;
     font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
