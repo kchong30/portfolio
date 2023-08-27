@@ -5,7 +5,7 @@ function About() {
   return (
     <div className="about">
       <h1 className="mb-5">Lets collaborate<span className="period"> &lt;/&gt;</span></h1>
-      <p>From simple single-page apps, to more large scale realized systems - my passion planning and engineering accessible, secure, and bespoke web projects.
+      <p>From simple single-page apps, to larger scale realized systems - my passion is planning and engineering accessible, secure, and bespoke web projects.
         Let me help you build the next great thing on the net.
       </p>
       <div className="button-container">
